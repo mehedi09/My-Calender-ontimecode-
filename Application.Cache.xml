@@ -1,0 +1,209 @@
+<application snapshot="true" integrity="checked" xmlns="urn:schemas-codeontime-com:data-aquarium-application" xmlns:m="urn:codeontime:data-map">
+  <pages xmlns="urn:schemas-codeontime-com:data-aquarium-application">
+    <page name="Home" title="^HomeTitle^Start^HomeTitle^" description="^HomeDesc^Application home page^HomeDesc^" path="^HomePath^Home^HomePath^" style="HomePage" customStyle="Wide" index="1000">
+      <containers>
+        <container id="container1" flow="NewRow" />
+        <container id="container2" flow="NewColumn" />
+      </containers>
+      <controls>
+        <control id="control1" name="TableOfContents" container="container1" />
+        <control id="control2" name="Welcome" container="container2" />
+      </controls>
+    </page>
+    <page name="KeyDescription" title="Key Description" description="View Key Description" index="1010" path="Key Description">
+      <containers>
+        <container id="container1" flow="NewRow" />
+        <container id="container2" flow="NewRow" style="padding-top:8px" />
+      </containers>
+      <dataViews>
+        <dataView id="view1" controller="KeyDescription" view="grid1" showInSummary="true" container="container1" activator="None" text="" />
+        <dataView id="view2" controller="KeyProcess" view="grid1" text="Key Process" filterSource="view1" container="container2" filterFields="KeyDescriptionId" activator="Tab" autoHide="Container" pageSize="5" />
+      </dataViews>
+      <controls />
+      <about>This page allows key description management.</about>
+    </page>
+    <page name="KeyProcess" title="Key Process" description="View Key Process" index="1020" path="Key Process">
+      <containers>
+        <container id="container1" flow="NewRow" />
+      </containers>
+      <dataViews>
+        <dataView id="view1" controller="KeyProcess" view="grid1" showInSummary="true" container="container1" activator="None" text="" showActionButtons="Bottom" />
+      </dataViews>
+      <controls />
+      <about>This page allows key process management.</about>
+    </page>
+    <page name="TimeNActinCalander" title="Time And Actin Calander" description="View Time And Actin Calander" index="1030" path="Time And Action Calander">
+      <containers>
+        <container id="container1" flow="NewRow" />
+      </containers>
+      <dataViews>
+        <dataView id="view1" controller="TimeNActinCalander" view="grid1" showInSummary="true" container="container1" activator="None" text="" />
+      </dataViews>
+      <controls>
+      </controls>
+      <about>This page allows time n actin calander management.</about>
+    </page>
+    <page name="cal" path="cal" index="1040" title="cal" roles="*">
+      <containers>
+        <container id="c101" flow="NewRow" width="100%" />
+      </containers>
+      <controls>
+        <control id="control1" container="c101" name="Calender" />
+      </controls>
+    </page>
+    <page name="Calander" path="Calander" index="1050" title="Calander" roles="*">
+      <containers>
+        <container id="c101" flow="NewRow" width="100%" />
+      </containers>
+      <controls>
+        <control id="control1" container="c101" name="Calander_Ajax" />
+      </controls>
+    </page>
+  </pages>
+  <userControls>
+    <userControl name="TableOfContents" prefix="uc" generate="Always">
+      <body>
+            
+&lt;div class="ParaInfo"&gt;
+        ^TocInstruction^Please select a page link in the table of contents below.^TocInstruction^&lt;/div&gt;
+&lt;div class="ParaHeader"&gt;
+    ^TocHeader^Site Map^TocHeader^
+&lt;/div&gt;
+&lt;asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="false" /&gt;
+&lt;asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource1" CssClass="TreeView"&gt;
+&lt;/asp:TreeView&gt;
+
+&lt;div id="app-sitemap" data-app-role="page" data-theme="a" 
+             data-activator="Button|^TocHeader^Site Map^TocHeader^"&gt;
+
+            
+            
+  &lt;div data-role="content"&gt;
+    &lt;p&gt;
+      &lt;span&gt;^TocInstruction^Please select a page link in the table of contents below.^TocInstruction^&lt;/span&gt;
+    &lt;/p&gt;
+    &lt;div data-app-role="sitemap"&gt;&lt;/div&gt;
+    &lt;p&gt;
+      &lt;br /&gt;
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+          </body>
+    </userControl>
+    <userControl name="Welcome" prefix="uc" generate="Always">
+      <body>
+                
+&lt;div style="padding-left:8px"&gt;&lt;div class="ParaInfo"&gt;
+        Select a page in a table of content.&lt;/div&gt;
+&lt;div class="ParaHeader"&gt;
+    Instructions
+&lt;/div&gt;
+&lt;div class="ParaText"&gt;
+    Membership option has not been selected for this application. 
+    The entire site content can be accessed without any restrictions.
+&lt;/div&gt;
+
+              </body>
+    </userControl>
+    <userControl name="TimeNActinCalander" prefix="uc" generate="FirstTimeOnly">
+      <body>
+&lt;div data-app-role="page" data-activator="Button|Responsive Grid" data-content-framework="bootstrap"&gt;
+    &lt;div data-role="content"&gt;
+        &lt;div class="container"&gt;
+            &lt;div class="row"&gt;
+                &lt;div class="col-md-10 col-sm-9"&gt;
+                    &lt;h1&gt;
+                        &lt;span class="glyphicon glyphicon-th"&gt; &lt;/span&gt; Heading
+                    &lt;/h1&gt;
+                    &lt;h4&gt;Cras justo odio, dapibus ac facilisis in, egestas eget quam. &lt;/h4&gt;
+                    &lt;p&gt;Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui. Donec id elit non mi porta gravida at eget metus. &lt;/p&gt;
+                &lt;/div&gt;
+                &lt;div class="col-md-2 col-sm-3"&gt;
+                    &lt;img src="../placeholder/38c-eee-140.png" class="img-circle" /&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;hr /&gt;
+            &lt;div class="row"&gt;
+                &lt;div class="col-lg-3 col-md-4 col-sm-6"&gt;
+                    &lt;div class="well"&gt;
+                        &lt;h1&gt;
+                        &lt;span class="glyphicon glyphicon-music"&gt; &lt;/span&gt; Item 1&lt;/h1&gt;
+                        &lt;p&gt;Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.&lt;/p&gt;
+                        &lt;div&gt;Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="col-lg-3 col-md-4 col-sm-6"&gt;
+                    &lt;div class="well"&gt;
+                        &lt;h1&gt;
+                        &lt;span class="glyphicon glyphicon-film"&gt;&lt;/span&gt; Item 2&lt;/h1&gt;
+                        &lt;p&gt;Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.&lt;/p&gt;
+                        &lt;div&gt;Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="col-lg-3 col-md-4 col-sm-6"&gt;
+                    &lt;div class="well"&gt;
+                        &lt;h1&gt;
+                        &lt;span class="glyphicon glyphicon-headphones"&gt;&lt;/span&gt; Item 3&lt;/h1&gt;
+                        &lt;p&gt;Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.&lt;/p&gt;
+                        &lt;div&gt;Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="col-lg-3 col-md-4 col-sm-6"&gt;
+                    &lt;div class="well"&gt;
+                        &lt;h1&gt;
+                        &lt;span class="glyphicon glyphicon-camera"&gt;&lt;/span&gt; Item 4&lt;/h1&gt;
+                        &lt;p&gt;Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.&lt;/p&gt;
+                        &lt;div&gt;Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="col-lg-3 col-md-4 col-sm-6"&gt;
+                    &lt;div class="well"&gt;
+                        &lt;h1&gt;
+                        &lt;span class="glyphicon glyphicon-picture"&gt;&lt;/span&gt; Item 5&lt;/h1&gt;
+                        &lt;p&gt;Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.&lt;/p&gt;
+                        &lt;div&gt;Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="col-lg-3 col-md-4 col-sm-6"&gt;
+                    &lt;div class="well"&gt;
+                        &lt;h1&gt;
+                        &lt;span class="glyphicon glyphicon-facetime-video"&gt;&lt;/span&gt; Item 6&lt;/h1&gt;
+                        &lt;p&gt;Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.&lt;/p&gt;
+                        &lt;div&gt;Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="col-lg-3 col-md-4 col-sm-6"&gt;
+                    &lt;div class="well"&gt;
+                        &lt;h1&gt;
+                        &lt;span class="glyphicon glyphicon-tint"&gt;&lt;/span&gt; Item 7&lt;/h1&gt;
+                        &lt;p&gt;Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.&lt;/p&gt;
+                        &lt;div&gt;Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="col-lg-3 col-md-4 col-sm-6"&gt;
+                    &lt;div class="well"&gt;
+                        &lt;h1&gt;
+                        &lt;span class="glyphicon glyphicon-bell"&gt;&lt;/span&gt; Item 8&lt;/h1&gt;
+                        &lt;p&gt;Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.&lt;/p&gt;
+                        &lt;div&gt;Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;div class="col-lg-3 col-md-4 col-sm-6"&gt;
+                    &lt;div class="well"&gt;
+                        &lt;h1&gt;
+                        &lt;span class="glyphicon glyphicon-flash"&gt;&lt;/span&gt; Item 9&lt;/h1&gt;
+                        &lt;p&gt;Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus.&lt;/p&gt;
+                        &lt;div&gt;Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;hr /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</body>
+    </userControl>
+    <userControl name="Calender" prefix="uc" generate="FirstTimeOnly" />
+    <userControl name="Calander_Ajax" prefix="uc" generate="FirstTimeOnly" />
+  </userControls>
+</application>

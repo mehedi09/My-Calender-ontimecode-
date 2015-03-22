@@ -1,0 +1,436 @@
+<log xmlns="urn:schemas-codeontime-com:xml-builder" xmlns:aquarium="urn:schemas-codeontime-com:data-aquarium" xmlns:a="urn:schemas-codeontime-com:data-aquarium">
+  <c y="NodeSet" t="2015-03-15T11:10:21">
+    <controller name="KeyProcess" />
+    <view id="grid1" />
+    <after>
+      <controller name="KeyProcess" />
+      <view id="createForm1" />
+    </after>
+  </c>
+  <c y="NodeSet" t="2015-03-15T11:10:22">
+    <controller name="KeyProcess" />
+    <view id="editForm1" />
+    <after>
+      <controller name="KeyProcess" />
+      <view id="grid1" />
+    </after>
+  </c>
+  <c y="NodeSet" t="2015-03-15T11:37:21">
+    <controller name="KeyProcess" />
+    <insert type="rule">
+      <Type>Sql</Type>
+      <CommandName>PlannedDurationCalculation</CommandName>
+      <Phase>Execute</Phase>
+      <Script>Set @PlannedDuration = DATEDIFF (DAY,@PlannedStart,@PlannedStart) +1 </Script>
+    </insert>
+  </c>
+  <c y="NodeSet" t="2015-03-15T11:45:51">
+    <controller name="KeyProcess" />
+    <field name="PlannedDuration" />
+    <update>
+      <Computed>true</Computed>
+      <Formula>DATEDIFF (DAY,KeyProcess.PlannedStart,KeyProcess.PlannedEnd) +1 </Formula>
+      <Calculated>true</Calculated>
+      <ContextFields>KeyID,PlannedStart,PlannedEnd</ContextFields>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T11:50:40">
+    <controller name="KeyProcess" />
+    <field name="PlannedDuration" />
+    <update>
+      <ContextFields>KeyID,@PlannedStart,@PlannedEnd</ContextFields>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T11:53:19">
+    <controller name="KeyProcess" />
+    <field name="PlannedDuration" />
+    <update>
+      <Type>Decimal</Type>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T11:53:31">
+    <controller name="KeyProcess" />
+    <field name="PlannedDuration" />
+    <update>
+      <ContextFields>KeyID,PlannedStart,PlannedEnd</ContextFields>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T11:55:15">
+    <controller name="KeyProcess" />
+    <rule id="r100" />
+    <update>
+      <CommandName>Calculate</CommandName>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T11:56:56">
+    <controller name="KeyProcess" />
+    <rule id="r100" />
+    <update>
+      <Script>Set @PlannedDuration = DATEDIFF (DAY,@PlannedStart,@PlannedEnd) +1 </Script>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T12:03:02">
+    <controller name="KeyProcess" />
+    <insert type="rule">
+      <Type>Sql</Type>
+      <CommandName>Calculate</CommandName>
+      <Phase>Execute</Phase>
+      <Script>Set</Script>
+    </insert>
+  </c>
+  <c y="NodeSet" t="2015-03-15T12:03:34">
+    <controller name="KeyProcess" />
+    <rule id="r101" />
+    <update>
+      <Script>Set @PlannedDuration = DATEDIFF (DAY,@ActualStart,@ActualEnd) +1 </Script>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T12:03:45">
+    <controller name="KeyProcess" />
+    <rule id="r101" />
+    <update>
+      <Script>Set @Duration = DATEDIFF (DAY,@ActualStart,@ActualEnd) +1 </Script>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T12:04:28">
+    <controller name="KeyProcess" />
+    <field name="Duration" />
+    <update>
+      <Computed>true</Computed>
+      <Formula>DATEDIFF (DAY,KeyProcess.PlannedStart,KeyProcess.PlannedEnd) +1 </Formula>
+      <Calculated>true</Calculated>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T12:04:54">
+    <controller name="KeyProcess" />
+    <field name="Duration" />
+    <update>
+      <Formula>DATEDIFF (DAY,KeyProcess.ActualStart,KeyProcess.ActualEnd) +1 </Formula>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T12:05:43">
+    <controller name="KeyProcess" />
+    <field name="Duration" />
+    <update>
+      <Type>Decimal</Type>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T12:08:05">
+    <controller name="KeyProcess" />
+    <field name="Duration" />
+    <update>
+      <ContextFields>KeyID,ActualStart,ActualEnd</ContextFields>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T12:12:15">
+    <controller name="KeyProcess" />
+    <field name="Duration" />
+    <update>
+      <Formula>DATEDIFF(DAY,KeyProcess.ActualStart,KeyProcess.ActualEnd)+1 </Formula>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T12:16:21">
+    <controller name="KeyProcess" />
+    <view id="createForm1" />
+    <update>
+      <CommandId>KeyIDIdentityCommand</CommandId>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T12:42:50">
+    <controller name="KeyProcess" />
+    <actionGroup id="ag2" />
+    <action id="a7" />
+    <update>
+      <CommandName>New</CommandName>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T12:44:12">
+    <controller name="KeyProcess" />
+    <actionGroup id="ag2" />
+    <action id="a7" />
+    <update>
+      <CommandName>Insert</CommandName>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T12:46:57">
+    <controller name="KeyProcess" />
+    <view id="grid1" />
+    <after>
+      <controller name="KeyProcess" />
+      <view id="createForm1" />
+    </after>
+  </c>
+  <c y="NodeSet" t="2015-03-15T12:47:02">
+    <controller name="KeyProcess" />
+    <view id="createForm1" />
+    <move>
+      <controller name="KeyProcess" />
+      <view id="editForm1" />
+    </move>
+  </c>
+  <c y="NodeSet" t="2015-03-15T12:58:08">
+    <controller name="KeyProcess" />
+    <view id="editForm1" />
+    <after>
+      <controller name="KeyProcess" />
+      <view id="createForm1" />
+    </after>
+  </c>
+  <c y="NodeSet" t="2015-03-15T12:58:18">
+    <controller name="KeyProcess" />
+    <view id="createForm1" />
+    <update>
+      <CommandId>command1</CommandId>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T13:07:32">
+    <controller name="KeyProcess" />
+    <actionGroup id="ag2" />
+    <action id="a7" />
+    <update>
+      <Data>Insert Into </Data>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T13:11:01">
+    <controller name="KeyProcess" />
+    <field name="KeyDescriptionId" />
+    <update>
+      <ItemsDataValueField>KeyDescriptionId</ItemsDataValueField>
+      <ItemsDataTextField>KeyDescription</ItemsDataTextField>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T13:13:43">
+    <controller name="KeyProcess" />
+    <field name="Duration" />
+    <update>
+      <Formula>DATEDIFF(DAY,KeyProcess.ActualStart,KeyProcess.ActualEnd)+1</Formula>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T13:14:05">
+    <controller name="KeyProcess" />
+    <field name="PlannedDuration" />
+    <update>
+      <Formula>DATEDIFF (DAY,KeyProcess.PlannedStart,KeyProcess.PlannedEnd) +1</Formula>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T13:14:38">
+    <controller name="KeyProcess" />
+    <rule id="r101" />
+    <update>
+      <Script>Set @Duration = DATEDIFF(DAY,@ActualStart,@ActualEnd)+1 </Script>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T13:15:10">
+    <controller name="KeyProcess" />
+    <rule id="r100" />
+    <update>
+      <Script>Set @PlannedDuration = DATEDIFF(DAY,@PlannedStart,@PlannedEnd) +1 </Script>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T13:25:46">
+    <controller name="KeyProcess" />
+    <view id="createForm1" />
+    <update>
+      <Access>Public</Access>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T13:48:30">
+    <controller name="KeyProcess" />
+    <actionGroup id="ag2" />
+    <action id="a7" />
+    <update>
+      <CommandName>SQL</CommandName>
+      <Data> INSERT INTO [IPACERP].[dbo].[KeyProcess](
+[KeyDescriptionId]
+      ,[PlannedStart]
+      ,[PlannedEnd]
+      ,[PlannedDuration]
+      ,[ActualStart]
+      ,[ActualEnd]
+      ,[Duration]
+      ,[Responsibilitie]
+      ,[Remarks]
+      ) VALUES (@KeyDescriptionId,@PlannedStart,@PlannedEnd,@PlannedDuration,@ActualStart,@ActualEnd,@Duration,@Responsibilitie);</Data>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T13:51:22">
+    <controller name="KeyProcess" />
+    <actionGroup id="ag2" />
+    <action id="a7" />
+    <update>
+      <Data> INSERT INTO [IPACERP].[dbo].[KeyProcess](
+[KeyDescriptionId]
+      ,[PlannedStart]
+      ,[PlannedEnd]
+      ,[PlannedDuration]
+      ,[ActualStart]
+      ,[ActualEnd]
+      ,[Duration]
+      ,[Responsibilitie]
+      ,[Remarks]
+      ) VALUES (@KeyDescriptionId,@PlannedStart,@PlannedEnd,@PlannedDuration,@ActualStart,@ActualEnd,@Duration,@Responsibilitie,@Remarks);</Data>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T13:51:35">
+    <controller name="KeyProcess" />
+    <actionGroup id="ag2" />
+    <action id="a7" />
+    <update>
+      <HeaderText>Insert</HeaderText>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T13:53:50">
+    <controller name="KeyProcess" />
+    <actionGroup id="ag2" />
+    <action id="a7" />
+    <update>
+      <CommandName>Insert</CommandName>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T13:56:32">
+    <controller name="KeyProcess" />
+    <field name="PlannedDuration" />
+    <update>
+      <ContextFields>KeyProcess</ContextFields>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T13:56:50">
+    <controller name="KeyProcess" />
+    <field name="Duration" />
+    <update>
+      <ContextFields>KeyProcess</ContextFields>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T13:58:05">
+    <controller name="KeyProcess" />
+    <field name="PlannedDuration" />
+    <update>
+      <ContextFields>PlannedStart, PlannedEnd</ContextFields>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T13:58:32">
+    <controller name="KeyProcess" />
+    <field name="Duration" />
+    <update>
+      <ContextFields>ActualStart,ActualEnd</ContextFields>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T13:59:44">
+    <controller name="KeyProcess" />
+    <rule id="r100" />
+    <update>
+      <Script>Set @PlannedDuration = DATEDIFF(dd,@PlannedStart,@PlannedEnd) +1 </Script>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T13:59:54">
+    <controller name="KeyProcess" />
+    <rule id="r101" />
+    <update>
+      <Script>Set @Duration = DATEDIFF(dd,@ActualStart,@ActualEnd)+1 </Script>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T14:00:07">
+    <controller name="KeyProcess" />
+    <field name="PlannedDuration" />
+    <update>
+      <Formula>DATEDIFF (dd,KeyProcess.PlannedStart,KeyProcess.PlannedEnd) +1</Formula>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T14:00:17">
+    <controller name="KeyProcess" />
+    <field name="Duration" />
+    <update>
+      <Formula>DATEDIFF(dd,KeyProcess.ActualStart,KeyProcess.ActualEnd)+1</Formula>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T14:20:15">
+    <controller name="KeyProcess" />
+    <actionGroup id="ag2" />
+    <action id="a7" />
+    <update>
+      <HeaderText />
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T14:21:06">
+    <controller name="KeyProcess" />
+    <rule id="r100" />
+    <delete />
+  </c>
+  <c y="NodeSet" t="2015-03-15T14:21:10">
+    <controller name="KeyProcess" />
+    <rule id="r101" />
+    <delete />
+  </c>
+  <c y="NodeSet" t="2015-03-15T14:21:44">
+    <controller name="KeyProcess" />
+    <field name="Duration" />
+    <update>
+      <Calculated>false</Calculated>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T14:24:37">
+    <controller name="KeyProcess" />
+    <insert type="rule">
+      <Type>Sql</Type>
+      <CommandName>Calculate</CommandName>
+      <Phase>Execute</Phase>
+      <Script>set @PlannedDuration=datediff(dd, @PlannedStart, @PlannedEnd)+1</Script>
+    </insert>
+  </c>
+  <c y="NodeSet" t="2015-03-15T14:26:09">
+    <controller name="KeyProcess" />
+    <rule id="r100" />
+    <update>
+      <Script>set @PlannedDuration=datediff(day, @PlannedStart, @PlannedEnd)+1</Script>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T14:27:45">
+    <controller name="KeyProcess" />
+    <field name="PlannedDuration" />
+    <update>
+      <Formula>DATEDIFF (day,KeyProcess.PlannedStart,KeyProcess.PlannedEnd) +1</Formula>
+      <ReadOnly>true</ReadOnly>
+      <ContextFields>KeyProcess, @PlannedStart, @PlannedEnd</ContextFields>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T14:31:51">
+    <controller name="KeyProcess" />
+    <insert type="rule">
+      <Type>Sql</Type>
+      <CommandName>Calculate</CommandName>
+      <Phase>Execute</Phase>
+      <Script>set @Duration=datediff(day, @ActualStart, @ActualEnd)+1</Script>
+    </insert>
+  </c>
+  <c y="NodeSet" t="2015-03-15T14:32:11">
+    <controller name="KeyProcess" />
+    <field name="Duration" />
+    <update>
+      <ReadOnly>true</ReadOnly>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T14:33:23">
+    <controller name="KeyProcess" />
+    <field name="Duration" />
+    <update>
+      <Formula>DATEDIFF(day,KeyProcess.ActualStart,KeyProcess.ActualEnd)+1</Formula>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T14:34:22">
+    <controller name="KeyProcess" />
+    <field name="Duration" />
+    <update>
+      <ContextFields>KeyProcess,@ActualStart,@ActualEnd</ContextFields>
+    </update>
+  </c>
+  <c y="NodeSet" t="2015-03-15T14:37:12">
+    <controller name="KeyProcess" />
+    <field name="Duration" />
+    <update>
+      <Formula>DATEDIFF(day,KeyProcess.ActualStart,KeyProcess.ActualEnd)+1
+
+</Formula>
+      <Calculated>true</Calculated>
+    </update>
+  </c>
+</log>

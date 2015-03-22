@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0" xmlns:app="urn:schemas-codeontime-com:data-aquarium-application">
+  <siteMapNode url="~/Default.aspx" title="^SiteHome^Home^SiteHome^" description="">
+    <siteMapNode title="^HomePath^Home^HomePath^" description="^HomeDesc^Application home page^HomeDesc^" url="~/Pages/Home.aspx" cssClass="Wide" />
+    <siteMapNode title="Key Description" description="View Key Description" url="~/Pages/KeyDescription.aspx" />
+    <siteMapNode title="Key Process" description="View Key Process" url="~/Pages/KeyProcess.aspx" />
+    <siteMapNode title="Time And Action Calander" description="View Time And Actin Calander" url="~/Pages/TimeNActinCalander.aspx" />
+    <siteMapNode title="cal" description="" url="~/Pages/cal.aspx" roles="*" />
+    <siteMapNode title="Calander" description="" url="~/Pages/Calander.aspx" roles="*" />
+  </siteMapNode>
+</siteMap>

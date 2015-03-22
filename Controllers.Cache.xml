@@ -1,0 +1,417 @@
+<dataControllerCollection snapshot="true" xmlns="urn:schemas-codeontime-com:data-aquarium">
+  <dataController name="KeyDescription" conflictDetection="overwriteChanges" label="Key Description" nativeSchema="dbo" nativeTableName="KeyDescription">
+    <commands>
+      <command id="command1" type="Text">
+        <text>
+select
+	"KeyDescription"."KeyDescriptionId" "KeyDescriptionId"
+	,"KeyDescription"."KeyDescription" "KeyDescription"
+from "dbo"."KeyDescription" "KeyDescription"
+</text>
+      </command>
+      <command id="KeyDescriptionIdIdentityCommand" type="Text" event="Inserted">
+        <text>select @@identity</text>
+        <output>
+          <fieldOutput fieldName="KeyDescriptionId" />
+        </output>
+      </command>
+    </commands>
+    <fields>
+      <field name="KeyDescriptionId" type="Int32" allowNulls="false" isPrimaryKey="true" label="Key Description#" readOnly="true" />
+      <field name="KeyDescription" type="String" label="Key Description" length="50" showInSummary="true" />
+    </fields>
+    <views>
+      <view id="grid1" type="Grid" commandId="command1" label="Key Description">
+        <headerText>$DefaultGridViewDescription</headerText>
+        <dataFields>
+          <dataField fieldName="KeyDescription" columns="50" />
+        </dataFields>
+      </view>
+      <view id="editForm1" type="Form" commandId="command1" label="Review Key Description">
+        <headerText>$DefaultEditViewDescription</headerText>
+        <categories>
+          <category id="c1" headerText="Key Description">
+            <description>$DefaultEditDescription</description>
+            <dataFields>
+              <dataField fieldName="KeyDescription" columns="50" />
+            </dataFields>
+          </category>
+        </categories>
+      </view>
+      <view id="createForm1" type="Form" commandId="command1" label="New Key Description">
+        <headerText>$DefaultCreateViewDescription</headerText>
+        <categories>
+          <category id="c1" headerText="New Key Description">
+            <description>$DefaultNewDescription</description>
+            <dataFields>
+              <dataField fieldName="KeyDescription" columns="50" />
+            </dataFields>
+          </category>
+        </categories>
+      </view>
+    </views>
+    <actions>
+      <actionGroup id="ag1" scope="Grid">
+        <action id="a1" commandName="Select" commandArgument="editForm1" />
+        <action id="a2" commandName="Edit" />
+        <action id="a3" commandName="Delete" />
+        <action id="a6" />
+        <action id="a7" commandName="Duplicate" commandArgument="createForm1" />
+        <action id="a8" commandName="New" commandArgument="grid1" />
+      </actionGroup>
+      <actionGroup id="ag2" scope="Form">
+        <action id="a1" commandName="Edit" />
+        <action id="a2" commandName="Delete" />
+        <action id="a3" commandName="Cancel" />
+        <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+        <action id="a5" whenLastCommandName="Edit" commandName="Delete" />
+        <action id="a6" whenLastCommandName="Edit" commandName="Cancel" />
+        <action id="a7" whenLastCommandName="New" commandName="Insert" />
+        <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+        <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+        <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+        <action id="a13" whenLastCommandName="Insert" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenKeySelected="true" whenClientScript="this.get_hasDetails()" />
+      </actionGroup>
+      <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+        <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" />
+      </actionGroup>
+      <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+        <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+        <action id="a2" whenKeySelected="true" commandName="Delete" cssClass="DeleteIcon" whenView="grid1" />
+      </actionGroup>
+      <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+        <action id="a1" commandName="ExportCsv" />
+        <action id="a2" />
+        <action id="a3" commandName="ExportRowset" />
+        <action id="a4" commandName="ExportRss" />
+      </actionGroup>
+      <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+        <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+        <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+        <action id="a3" whenLastCommandName="New" commandName="Insert" />
+        <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+      </actionGroup>
+      <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+        <action id="a1" commandName="ReportAsPdf" />
+        <action id="a2" commandName="ReportAsImage" />
+        <action id="a3" commandName="ReportAsExcel" />
+        <action id="a4" commandName="ReportAsWord" />
+      </actionGroup>
+      <actionGroup id="ag8" scope="Row">
+        <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+        <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+        <action id="a6" whenLastCommandName="New" commandName="Insert" />
+        <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+      </actionGroup>
+    </actions>
+  </dataController>
+  <dataController name="KeyProcess" conflictDetection="overwriteChanges" label="Key Process" nativeSchema="dbo" nativeTableName="KeyProcess">
+    <commands>
+      <command id="command1" type="Text">
+        <text>
+select
+	"KeyProcess"."KeyID" "KeyID"
+	,"KeyProcess"."KeyDescriptionId" "KeyDescriptionId"
+	,"KeyDescription"."KeyDescription" "KeyDescriptionKeyDescription"
+	,"KeyProcess"."PlannedStart" "PlannedStart"
+	,"KeyProcess"."PlannedEnd" "PlannedEnd"
+	,"KeyProcess"."PlannedDuration" "PlannedDuration"
+	,"KeyProcess"."ActualStart" "ActualStart"
+	,"KeyProcess"."ActualEnd" "ActualEnd"
+	,"KeyProcess"."Duration" "Duration"
+	,"KeyProcess"."Responsibilitie" "Responsibilitie"
+	,"KeyProcess"."Remarks" "Remarks"
+from "dbo"."KeyProcess" "KeyProcess"
+	left join "dbo"."KeyDescription" "KeyDescription" on "KeyProcess"."KeyDescriptionId" = "KeyDescription"."KeyDescriptionId"
+</text>
+      </command>
+      <command id="KeyIDIdentityCommand" type="Text" event="Inserted">
+        <text>select @@identity</text>
+        <output>
+          <fieldOutput fieldName="KeyID" />
+        </output>
+      </command>
+    </commands>
+    <fields>
+      <field name="KeyID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Key#" readOnly="true" />
+      <field name="KeyDescriptionId" type="Int32" label="Key Description#" showInSummary="true">
+        <items style="Lookup" dataController="KeyDescription" newDataView="createForm1" dataTextField="KeyDescription" dataValueField="KeyDescriptionId" />
+      </field>
+      <field name="KeyDescriptionKeyDescription" type="String" readOnly="true" label="Key Description" length="50" />
+      <field name="PlannedStart" type="DateTime" label="Planned Start" showInSummary="true" />
+      <field name="PlannedEnd" type="DateTime" label="Planned End" showInSummary="true" />
+      <field name="PlannedDuration" type="Decimal" label="Planned Duration" showInSummary="true" contextFields="KeyProcess, @PlannedStart, @PlannedEnd" computed="true" calculated="true" readOnly="true">
+        <formula>DATEDIFF (day,KeyProcess.PlannedStart,KeyProcess.PlannedEnd) +1</formula>
+      </field>
+      <field name="ActualStart" type="DateTime" label="Actual Start" showInSummary="true" />
+      <field name="ActualEnd" type="DateTime" label="Actual End" />
+      <field name="Duration" type="Decimal" label="Duration" computed="true" contextFields="KeyProcess,@ActualStart,@ActualEnd" readOnly="true" calculated="true">
+        <formula>DATEDIFF(day,KeyProcess.ActualStart,KeyProcess.ActualEnd)+1
+
+</formula>
+      </field>
+      <field name="Responsibilitie" type="String" label="Responsibilitie" length="50" />
+      <field name="Remarks" type="String" label="Remarks" length="50" />
+    </fields>
+    <views>
+      <view id="grid1" type="Grid" commandId="command1" label="Key Process">
+        <headerText>$DefaultGridViewDescription</headerText>
+        <dataFields>
+          <dataField fieldName="KeyDescriptionId" aliasFieldName="KeyDescriptionKeyDescription" />
+          <dataField fieldName="PlannedStart" columns="10" />
+          <dataField fieldName="PlannedEnd" columns="10" />
+          <dataField fieldName="PlannedDuration" columns="15" />
+          <dataField fieldName="ActualStart" columns="10" />
+          <dataField fieldName="ActualEnd" columns="10" />
+          <dataField fieldName="Duration" columns="15" />
+          <dataField fieldName="Responsibilitie" columns="50" />
+          <dataField fieldName="Remarks" columns="50" />
+        </dataFields>
+      </view>
+      <view id="editForm1" type="Form" commandId="command1" label="Review Key Process">
+        <headerText>$DefaultEditViewDescription</headerText>
+        <categories>
+          <category id="c1" headerText="Key Process">
+            <description>$DefaultEditDescription</description>
+            <dataFields>
+              <dataField fieldName="KeyDescriptionId" aliasFieldName="KeyDescriptionKeyDescription" />
+              <dataField fieldName="PlannedStart" columns="10" />
+              <dataField fieldName="PlannedEnd" columns="10" />
+              <dataField fieldName="PlannedDuration" columns="15" />
+              <dataField fieldName="ActualStart" columns="10" />
+              <dataField fieldName="ActualEnd" columns="10" />
+              <dataField fieldName="Duration" columns="15" />
+              <dataField fieldName="Responsibilitie" columns="50" />
+              <dataField fieldName="Remarks" columns="50" />
+            </dataFields>
+          </category>
+        </categories>
+      </view>
+      <view id="createForm1" type="Form" commandId="command1" label="New Key Process" access="Public">
+        <headerText>$DefaultCreateViewDescription</headerText>
+        <categories>
+          <category id="c1" headerText="New Key Process">
+            <description>$DefaultNewDescription</description>
+            <dataFields>
+              <dataField fieldName="KeyDescriptionId" aliasFieldName="KeyDescriptionKeyDescription" />
+              <dataField fieldName="PlannedStart" columns="10" />
+              <dataField fieldName="PlannedEnd" columns="10" />
+              <dataField fieldName="PlannedDuration" columns="15" />
+              <dataField fieldName="ActualStart" columns="10" />
+              <dataField fieldName="ActualEnd" columns="10" />
+              <dataField fieldName="Duration" columns="15" />
+              <dataField fieldName="Responsibilitie" columns="50" />
+              <dataField fieldName="Remarks" columns="50" />
+            </dataFields>
+          </category>
+        </categories>
+      </view>
+    </views>
+    <actions>
+      <actionGroup id="ag1" scope="Grid">
+        <action id="a1" commandName="Select" commandArgument="editForm1" />
+        <action id="a2" commandName="Edit" />
+        <action id="a3" commandName="Delete" />
+        <action id="a6" />
+        <action id="a7" commandName="Duplicate" commandArgument="createForm1" />
+        <action id="a8" commandName="New" commandArgument="grid1" />
+      </actionGroup>
+      <actionGroup id="ag2" scope="Form">
+        <action id="a1" commandName="Edit" />
+        <action id="a2" commandName="Delete" />
+        <action id="a3" commandName="Cancel" />
+        <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+        <action id="a5" whenLastCommandName="Edit" commandName="Delete" />
+        <action id="a6" whenLastCommandName="Edit" commandName="Cancel" />
+        <action id="a7" whenLastCommandName="New" commandName="Insert">
+          <data> INSERT INTO [IPACERP].[dbo].[KeyProcess](
+[KeyDescriptionId]
+      ,[PlannedStart]
+      ,[PlannedEnd]
+      ,[PlannedDuration]
+      ,[ActualStart]
+      ,[ActualEnd]
+      ,[Duration]
+      ,[Responsibilitie]
+      ,[Remarks]
+      ) VALUES (@KeyDescriptionId,@PlannedStart,@PlannedEnd,@PlannedDuration,@ActualStart,@ActualEnd,@Duration,@Responsibilitie,@Remarks);</data>
+        </action>
+        <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+        <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+        <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+        <action id="a13" whenLastCommandName="Insert" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenKeySelected="true" whenClientScript="this.get_hasDetails()" />
+      </actionGroup>
+      <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+        <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" />
+      </actionGroup>
+      <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+        <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+        <action id="a2" whenKeySelected="true" commandName="Delete" cssClass="DeleteIcon" whenView="grid1" />
+      </actionGroup>
+      <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+        <action id="a1" commandName="ExportCsv" />
+        <action id="a2" />
+        <action id="a3" commandName="ExportRowset" />
+        <action id="a4" commandName="ExportRss" />
+      </actionGroup>
+      <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+        <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+        <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+        <action id="a3" whenLastCommandName="New" commandName="Insert" />
+        <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+      </actionGroup>
+      <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+        <action id="a1" commandName="ReportAsPdf" />
+        <action id="a2" commandName="ReportAsImage" />
+        <action id="a3" commandName="ReportAsExcel" />
+        <action id="a4" commandName="ReportAsWord" />
+      </actionGroup>
+      <actionGroup id="ag8" scope="Row">
+        <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+        <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+        <action id="a6" whenLastCommandName="New" commandName="Insert" />
+        <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+      </actionGroup>
+    </actions>
+    <businessRules>
+      <rule id="r100" commandName="Calculate" type="Sql" phase="Execute">set @PlannedDuration=datediff(day, @PlannedStart, @PlannedEnd)+1</rule>
+      <rule id="r101" commandName="Calculate" type="Sql" phase="Execute">set @Duration=datediff(day, @ActualStart, @ActualEnd)+1</rule>
+    </businessRules>
+  </dataController>
+  <dataController name="TimeNActinCalander" conflictDetection="overwriteChanges" label="Time N Actin Calander" nativeSchema="dbo" nativeTableName="TimeNActinCalander">
+    <commands>
+      <command id="command1" type="Text">
+        <text>
+select
+	"TimeNActinCalander"."SerialID" "SerialID"
+	,"TimeNActinCalander"."BuyerID" "BuyerID"
+	,"TimeNActinCalander"."StyleID" "StyleID"
+	,"TimeNActinCalander"."MarchantID" "MarchantID"
+	,"TimeNActinCalander"."ReceivedDate" "ReceivedDate"
+	,"TimeNActinCalander"."ExFactoryDate(ONPO)" "ExFactoryDateONPO"
+	,"TimeNActinCalander"."Ex.FactoryDate(asperplan)" "ExFactoryDateasperplan"
+	,"TimeNActinCalander"."LeadTimeDays" "LeadTimeDays"
+from "dbo"."TimeNActinCalander" "TimeNActinCalander"
+</text>
+      </command>
+      <command id="SerialIDIdentityCommand" type="Text" event="Inserted">
+        <text>select @@identity</text>
+        <output>
+          <fieldOutput fieldName="SerialID" />
+        </output>
+      </command>
+    </commands>
+    <fields>
+      <field name="SerialID" type="Int32" allowNulls="false" isPrimaryKey="true" label="Serial#" readOnly="true" />
+      <field name="BuyerID" type="Int32" label="Buyer#" showInSummary="true" />
+      <field name="StyleID" type="Int32" label="Style#" showInSummary="true" />
+      <field name="MarchantID" type="Int32" label="Marchant#" showInSummary="true" />
+      <field name="ReceivedDate" type="DateTime" label="Received Date" showInSummary="true" />
+      <field name="ExFactoryDateONPO" type="DateTime" label="Ex Factory Date ONPO" showInSummary="true" />
+      <field name="ExFactoryDateasperplan" type="DateTime" label="Ex Factory Date asperplan" />
+      <field name="LeadTimeDays" type="Int32" label="Lead Time Days" />
+    </fields>
+    <views>
+      <view id="grid1" type="Grid" commandId="command1" label="Time N Actin Calander">
+        <headerText>$DefaultGridViewDescription</headerText>
+        <dataFields>
+          <dataField fieldName="BuyerID" columns="15" />
+          <dataField fieldName="StyleID" columns="15" />
+          <dataField fieldName="MarchantID" columns="15" />
+          <dataField fieldName="ReceivedDate" columns="10" />
+          <dataField fieldName="ExFactoryDateONPO" columns="10" />
+          <dataField fieldName="ExFactoryDateasperplan" columns="10" />
+          <dataField fieldName="LeadTimeDays" columns="15" />
+        </dataFields>
+      </view>
+      <view id="editForm1" type="Form" commandId="command1" label="Review Time N Actin Calander">
+        <headerText>$DefaultEditViewDescription</headerText>
+        <categories>
+          <category id="c1" headerText="Time N Actin Calander">
+            <description>$DefaultEditDescription</description>
+            <dataFields>
+              <dataField fieldName="BuyerID" columns="15" />
+              <dataField fieldName="StyleID" columns="15" />
+              <dataField fieldName="MarchantID" columns="15" />
+              <dataField fieldName="ReceivedDate" columns="10" />
+              <dataField fieldName="ExFactoryDateONPO" columns="10" />
+              <dataField fieldName="ExFactoryDateasperplan" columns="10" />
+              <dataField fieldName="LeadTimeDays" columns="15" />
+            </dataFields>
+          </category>
+        </categories>
+      </view>
+      <view id="createForm1" type="Form" commandId="command1" label="New Time N Actin Calander">
+        <headerText>$DefaultCreateViewDescription</headerText>
+        <categories>
+          <category id="c1" headerText="New Time N Actin Calander">
+            <description>$DefaultNewDescription</description>
+            <dataFields>
+              <dataField fieldName="BuyerID" columns="15" />
+              <dataField fieldName="StyleID" columns="15" />
+              <dataField fieldName="MarchantID" columns="15" />
+              <dataField fieldName="ReceivedDate" columns="10" />
+              <dataField fieldName="ExFactoryDateONPO" columns="10" />
+              <dataField fieldName="ExFactoryDateasperplan" columns="10" />
+              <dataField fieldName="LeadTimeDays" columns="15" />
+            </dataFields>
+          </category>
+        </categories>
+      </view>
+    </views>
+    <actions>
+      <actionGroup id="ag1" scope="Grid">
+        <action id="a1" commandName="Select" commandArgument="editForm1" />
+        <action id="a2" commandName="Edit" />
+        <action id="a3" commandName="Delete" />
+        <action id="a6" />
+        <action id="a7" commandName="Duplicate" commandArgument="createForm1" />
+        <action id="a8" commandName="New" commandArgument="grid1" />
+      </actionGroup>
+      <actionGroup id="ag2" scope="Form">
+        <action id="a1" commandName="Edit" />
+        <action id="a2" commandName="Delete" />
+        <action id="a3" commandName="Cancel" />
+        <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+        <action id="a5" whenLastCommandName="Edit" commandName="Delete" />
+        <action id="a6" whenLastCommandName="Edit" commandName="Cancel" />
+        <action id="a7" whenLastCommandName="New" commandName="Insert" />
+        <action id="a8" whenLastCommandName="New" commandName="Cancel" />
+        <action id="a9" whenLastCommandName="Duplicate" commandName="Insert" />
+        <action id="a10" whenLastCommandName="Duplicate" commandName="Cancel" />
+        <action id="a13" whenLastCommandName="Insert" whenView="createForm1" commandName="Select" commandArgument="editForm1" whenKeySelected="true" whenClientScript="this.get_hasDetails()" />
+      </actionGroup>
+      <actionGroup id="ag3" scope="ActionBar" headerText="New" flat="true">
+        <action id="a1" commandName="New" commandArgument="createForm1" cssClass="NewIcon" />
+      </actionGroup>
+      <actionGroup id="ag4" scope="ActionBar" headerText="Edit/Delete" flat="true">
+        <action id="a1" whenKeySelected="true" commandName="Edit" commandArgument="editForm1" cssClass="EditIcon" whenView="grid1" />
+        <action id="a2" whenKeySelected="true" commandName="Delete" cssClass="DeleteIcon" whenView="grid1" />
+      </actionGroup>
+      <actionGroup id="ag5" scope="ActionBar" headerText="Actions">
+        <action id="a1" commandName="ExportCsv" />
+        <action id="a2" />
+        <action id="a3" commandName="ExportRowset" />
+        <action id="a4" commandName="ExportRss" />
+      </actionGroup>
+      <actionGroup id="ag6" scope="ActionBar" headerText="Record">
+        <action id="a1" whenLastCommandName="Edit" commandName="Update" />
+        <action id="a2" whenLastCommandName="Edit" commandName="Cancel" />
+        <action id="a3" whenLastCommandName="New" commandName="Insert" />
+        <action id="a4" whenLastCommandName="New" commandName="Cancel" />
+      </actionGroup>
+      <actionGroup id="ag7" scope="ActionBar" headerText="Report">
+        <action id="a1" commandName="ReportAsPdf" />
+        <action id="a2" commandName="ReportAsImage" />
+        <action id="a3" commandName="ReportAsExcel" />
+        <action id="a4" commandName="ReportAsWord" />
+      </actionGroup>
+      <actionGroup id="ag8" scope="Row">
+        <action id="a4" whenLastCommandName="Edit" commandName="Update" />
+        <action id="a5" whenLastCommandName="Edit" commandName="Cancel" />
+        <action id="a6" whenLastCommandName="New" commandName="Insert" />
+        <action id="a7" whenLastCommandName="New" commandName="Cancel" />
+      </actionGroup>
+    </actions>
+  </dataController>
+</dataControllerCollection>

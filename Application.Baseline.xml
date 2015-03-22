@@ -1,0 +1,92 @@
+<application snapshot="false" xmlns="urn:schemas-codeontime-com:data-aquarium-application" xmlns:m="urn:codeontime:data-map">
+  <pages xmlns="urn:schemas-codeontime-com:data-aquarium-application">
+    <page name="Home" title="^HomeTitle^Start^HomeTitle^" description="^HomeDesc^Application home page^HomeDesc^" path="^HomePath^Home^HomePath^" style="HomePage" customStyle="Wide" index="1000">
+      <containers>
+        <container id="container1" flow="NewRow" />
+        <container id="container2" flow="NewColumn" />
+      </containers>
+      <controls>
+        <control id="control1" name="TableOfContents" container="container1" />
+        <control id="control2" name="Welcome" container="container2" />
+      </controls>
+    </page>
+    <page name="KeyDescription" title="Key Description" description="View Key Description" index="1010" path="Key Description">
+      <containers>
+        <container id="container1" flow="NewRow" />
+        <container id="container2" flow="NewRow" style="padding-top:8px" />
+      </containers>
+      <dataViews>
+        <dataView id="view1" controller="KeyDescription" view="grid1" showInSummary="true" container="container1" activator="None" text="" />
+        <dataView id="view2" controller="KeyProcess" view="grid1" text="Key Process" filterSource="view1" container="container2" filterFields="KeyDescriptionId" activator="Tab" autoHide="Container" pageSize="5" />
+      </dataViews>
+      <controls />
+      <about>This page allows key description management.</about>
+    </page>
+    <page name="KeyProcess" title="Key Process" description="View Key Process" index="1020" path="Key Description | Key Process">
+      <containers>
+        <container id="container1" flow="NewRow" />
+      </containers>
+      <dataViews>
+        <dataView id="view1" controller="KeyProcess" view="grid1" showInSummary="true" container="container1" activator="None" text="" />
+      </dataViews>
+      <controls />
+      <about>This page allows key process management.</about>
+    </page>
+    <page name="TimeNActinCalander" title="Time N Actin Calander" description="View Time N Actin Calander" index="1030" path="Time N Actin Calander">
+      <containers>
+        <container id="container1" flow="NewRow" />
+      </containers>
+      <dataViews>
+        <dataView id="view1" controller="TimeNActinCalander" view="grid1" showInSummary="true" container="container1" activator="None" text="" />
+      </dataViews>
+      <controls />
+      <about>This page allows time n actin calander management.</about>
+    </page>
+  </pages>
+  <userControls>
+    <userControl name="TableOfContents" prefix="uc" generate="Always">
+      <body>
+            
+&lt;div class="ParaInfo"&gt;
+        ^TocInstruction^Please select a page link in the table of contents below.^TocInstruction^&lt;/div&gt;
+&lt;div class="ParaHeader"&gt;
+    ^TocHeader^Site Map^TocHeader^
+&lt;/div&gt;
+&lt;asp:SiteMapDataSource ID="SiteMapDataSource1" runat="server" ShowStartingNode="false" /&gt;
+&lt;asp:TreeView ID="TreeView1" runat="server" DataSourceID="SiteMapDataSource1" CssClass="TreeView"&gt;
+&lt;/asp:TreeView&gt;
+
+&lt;div id="app-sitemap" data-app-role="page" data-theme="a" 
+             data-activator="Button|^TocHeader^Site Map^TocHeader^"&gt;
+
+            
+            
+  &lt;div data-role="content"&gt;
+    &lt;p&gt;
+      &lt;span&gt;^TocInstruction^Please select a page link in the table of contents below.^TocInstruction^&lt;/span&gt;
+    &lt;/p&gt;
+    &lt;div data-app-role="sitemap"&gt;&lt;/div&gt;
+    &lt;p&gt;
+      &lt;br /&gt;
+    &lt;/p&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+          </body>
+    </userControl>
+    <userControl name="Welcome" prefix="uc" generate="Always">
+      <body>
+                
+&lt;div style="padding-left:8px"&gt;&lt;div class="ParaInfo"&gt;
+        Select a page in a table of content.&lt;/div&gt;
+&lt;div class="ParaHeader"&gt;
+    Instructions
+&lt;/div&gt;
+&lt;div class="ParaText"&gt;
+    Membership option has not been selected for this application. 
+    The entire site content can be accessed without any restrictions.
+&lt;/div&gt;
+
+              </body>
+    </userControl>
+  </userControls>
+</application>

@@ -1,0 +1,543 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{7243548D-D5FF-4115-944B-7A012F1563E0}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WebApp</RootNamespace>
+    <AssemblyName>WebApp</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845DCD8080CC91, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Design" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.XML" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.DataVisualization" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\TimeNAction\TimeNAction.csproj">
+      <Project>{EC6EA21E-A293-4B82-9CD3-EF55E8FBB787}</Project>
+      <Name>TimeNAction</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Controls\Calander_Ajax.ascx" />
+    <Content Include="Controls\Calender.ascx" />
+    <Content Include="Controls\MembershipManager.ascx" />
+    <Content Include="Controls\TableOfContents.ascx" />
+    <Content Include="Controls\TableOfContents.ascx.en-US.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Controls\TimeNActinCalander.ascx" />
+    <Content Include="Controls\Welcome.ascx" />
+    <Content Include="Controls\Welcome.ascx.en-US.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DAF\Service.asmx" />
+    <Content Include="Help\Default.aspx" />
+    <Content Include="Help\Help.master" />
+    <Content Include="Pages\cal.aspx" />
+    <Content Include="Pages\Calander.aspx" />
+    <Content Include="Pages\Home.aspx" />
+    <Content Include="Pages\Home.aspx.en-US.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Pages\KeyDescription.aspx" />
+    <Content Include="Pages\KeyProcess.aspx" />
+    <Content Include="Pages\Membership.aspx" />
+    <Content Include="Pages\Membership.aspx.en-US.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Pages\TimeNActinCalander.aspx" />
+    <Content Include="Default.aspx" />
+    <Content Include="Global.asax" />
+    <Content Include="Main.master" />
+    <Content Include="web.config" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>web.config</DependentUpon>
+    </None>
+    <Content Include="Web.Sitemap.en-US.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="WebService1.asmx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Controls\Calander_Ajax.ascx.cs">
+      <DependentUpon>Calander_Ajax.ascx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Calander_Ajax.ascx.designer.cs">
+      <DependentUpon>Calander_Ajax.ascx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Calender.ascx.cs">
+      <DependentUpon>Calender.ascx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Calender.ascx.designer.cs">
+      <DependentUpon>Calender.ascx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Controls\MembershipManager.ascx.cs">
+      <DependentUpon>MembershipManager.ascx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Controls\MembershipManager.ascx.designer.cs">
+      <DependentUpon>MembershipManager.ascx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Controls\TableOfContents.ascx.cs">
+      <DependentUpon>TableOfContents.ascx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Controls\TableOfContents.ascx.designer.cs">
+      <DependentUpon>TableOfContents.ascx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Controls\TimeNActinCalander.ascx.cs">
+      <DependentUpon>TimeNActinCalander.ascx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Controls\TimeNActinCalander.ascx.designer.cs">
+      <DependentUpon>TimeNActinCalander.ascx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Welcome.ascx.cs">
+      <DependentUpon>Welcome.ascx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Welcome.ascx.designer.cs">
+      <DependentUpon>Welcome.ascx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\cal.aspx.cs">
+      <DependentUpon>cal.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\cal.aspx.designer.cs">
+      <DependentUpon>cal.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Calander.aspx.cs">
+      <DependentUpon>Calander.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Calander.aspx.designer.cs">
+      <DependentUpon>Calander.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\KeyDescription.aspx.cs">
+      <DependentUpon>KeyDescription.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\KeyDescription.aspx.designer.cs">
+      <DependentUpon>KeyDescription.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\KeyProcess.aspx.cs">
+      <DependentUpon>KeyProcess.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\KeyProcess.aspx.designer.cs">
+      <DependentUpon>KeyProcess.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Membership.aspx.cs">
+      <DependentUpon>Membership.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Membership.aspx.designer.cs">
+      <DependentUpon>Membership.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TimeNActinCalander.aspx.cs">
+      <DependentUpon>TimeNActinCalander.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Pages\TimeNActinCalander.aspx.designer.cs">
+      <DependentUpon>TimeNActinCalander.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Main.master.cs">
+      <DependentUpon>Main.master</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="Main.master.designer.cs">
+      <DependentUpon>Main.master</DependentUpon>
+      <SubType>ASPXCodebehind</SubType>
+    </Compile>
+    <Compile Include="WebService1.asmx.cs">
+      <DependentUpon>WebService1.asmx</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Scripts\calendarscript.js" />
+    <EmbeddedResource Include="Scripts\_references.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Themes\Plastic\ActionBarBg.gif" />
+    <Content Include="App_Themes\Plastic\ActionBarDiv.gif" />
+    <Content Include="App_Themes\Plastic\ActionGroupBg.gif" />
+    <Content Include="App_Themes\Plastic\ArrowBkg.gif" />
+    <Content Include="App_Themes\Plastic\Bullet.gif" />
+    <Content Include="App_Themes\Plastic\HeaderBg.gif" />
+    <Content Include="App_Themes\Plastic\HeaderBgActive.gif" />
+    <Content Include="App_Themes\Plastic\MenuBg.gif" />
+    <Content Include="App_Themes\Plastic\MenuBgLarge.gif" />
+    <Content Include="App_Themes\Plastic\NavShape.jpg" />
+    <Content Include="App_Themes\Plastic\PageContentRightSide.gif" />
+    <Content Include="App_Themes\Plastic\PageHeader.gif" />
+    <Content Include="App_Themes\Plastic\ParaHeaderBkg.gif" />
+    <Content Include="App_Themes\Plastic\Plastic.css" />
+    <Content Include="App_Themes\Plastic\SettingsGraphic.jpg" />
+    <Content Include="App_Themes\Plastic\SiteActionsActiveTab.gif" />
+    <Content Include="App_Themes\Plastic\SiteActionsInactiveTab.gif" />
+    <Content Include="App_Themes\Plastic\TabsActiveTab.gif" />
+    <Content Include="App_Themes\Plastic\TabsBar.gif" />
+    <Content Include="App_Themes\Plastic\TabsInactiveTab.gif" />
+    <Content Include="App_Themes\Plastic\TabsSelectedTab.gif" />
+    <Content Include="App_Themes\Plastic\TaskBoxBkg.gif" />
+    <Content Include="App_Themes\Plastic\TaskBullet.gif" />
+    <Content Include="App_Themes\Plastic\TopShape.jpg" />
+    <Content Include="App_Themes\Plastic\ViewNameBg.gif" />
+    <Content Include="App_Themes\TimeNAction\syst-animated-overlay.gif" />
+    <Content Include="App_Themes\TimeNAction\syst-ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="App_Themes\TimeNAction\syst-ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="App_Themes\TimeNAction\syst-ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="App_Themes\TimeNAction\syst-ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="App_Themes\TimeNAction\syst-ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="App_Themes\TimeNAction\syst-ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="App_Themes\TimeNAction\syst-ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="App_Themes\TimeNAction\syst-ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="App_Themes\TimeNAction\syst-ui-icons_222222_256x240.png" />
+    <Content Include="App_Themes\TimeNAction\syst-ui-icons_2e83ff_256x240.png" />
+    <Content Include="App_Themes\TimeNAction\syst-ui-icons_454545_256x240.png" />
+    <Content Include="App_Themes\TimeNAction\syst-ui-icons_888888_256x240.png" />
+    <Content Include="App_Themes\TimeNAction\syst-ui-icons_cd0a0a_256x240.png" />
+    <Content Include="App_Themes\TimeNAction\_Layout.skin" />
+    <Content Include="App_Themes\TimeNAction\_Theme_Plastic.css" />
+    <Content Include="App_Themes\_Shared\Acrobat.gif" />
+    <Content Include="App_Themes\_Shared\ActionBarBg.gif" />
+    <Content Include="App_Themes\_Shared\ActionBarDiv.gif" />
+    <Content Include="App_Themes\_Shared\ActionGroupBg.gif" />
+    <Content Include="App_Themes\_Shared\AddBookmark.gif" />
+    <Content Include="App_Themes\_Shared\AdvancedSearch.gif" />
+    <Content Include="App_Themes\_Shared\arrow-left.gif" />
+    <Content Include="App_Themes\_Shared\arrow-right.gif" />
+    <Content Include="App_Themes\_Shared\ArrowBkg.gif" />
+    <Content Include="App_Themes\_Shared\Attach.gif" />
+    <Content Include="App_Themes\_Shared\Attention.gif" />
+    <Content Include="App_Themes\_Shared\BACK.gif" />
+    <Content Include="App_Themes\_Shared\Bullet.gif" />
+    <Content Include="App_Themes\_Shared\Calendar.gif" />
+    <Content Include="App_Themes\_Shared\CheckMark.gif" />
+    <Content Include="App_Themes\_Shared\CheckMark2.gif" />
+    <Content Include="App_Themes\_Shared\CheckMarkLarge.GIF" />
+    <Content Include="App_Themes\_Shared\Close.gif" />
+    <Content Include="App_Themes\_Shared\Core.css" />
+    <Content Include="App_Themes\_Shared\DataSheet.gif" />
+    <Content Include="App_Themes\_Shared\DefaultLogo.gif" />
+    <Content Include="App_Themes\_Shared\Delete.gif" />
+    <Content Include="App_Themes\_Shared\DropArrow.gif" />
+    <Content Include="App_Themes\_Shared\Edit.gif" />
+    <Content Include="App_Themes\_Shared\EditMode.gif" />
+    <Content Include="App_Themes\_Shared\Erase.gif" />
+    <Content Include="App_Themes\_Shared\Excel.gif" />
+    <Content Include="App_Themes\_Shared\EXCLAIM.gif" />
+    <Content Include="App_Themes\_Shared\ExportCsv.gif" />
+    <Content Include="App_Themes\_Shared\ExportRowset.gif" />
+    <Content Include="App_Themes\_Shared\ExportRss.gif" />
+    <Content Include="App_Themes\_Shared\Filter.gif" />
+    <Content Include="App_Themes\_Shared\FilterOff.gif" />
+    <Content Include="App_Themes\_Shared\FilterOffDisabled.gif" />
+    <Content Include="App_Themes\_Shared\FORWARD.gif" />
+    <Content Include="App_Themes\_Shared\HeaderBg.gif" />
+    <Content Include="App_Themes\_Shared\html-editor-buttons.png" />
+    <Content Include="App_Themes\_Shared\ICONGO.gif" />
+    <Content Include="App_Themes\_Shared\Import.png" />
+    <Content Include="App_Themes\_Shared\Import2.png" />
+    <Content Include="App_Themes\_Shared\Information.gif" />
+    <Content Include="App_Themes\_Shared\Maximize.gif" />
+    <Content Include="App_Themes\_Shared\MenuBg.gif" />
+    <Content Include="App_Themes\_Shared\MenuBgLarge.gif" />
+    <Content Include="App_Themes\_Shared\Minimize.gif" />
+    <Content Include="App_Themes\_Shared\MultiPage.gif" />
+    <Content Include="App_Themes\_Shared\Navigate.gif" />
+    <Content Include="App_Themes\_Shared\NavShape.jpg" />
+    <Content Include="App_Themes\_Shared\NavStrip.gif" />
+    <Content Include="App_Themes\_Shared\New.gif" />
+    <Content Include="App_Themes\_Shared\NewLarge.gif" />
+    <Content Include="App_Themes\_Shared\ObjectRef.gif" />
+    <Content Include="App_Themes\_Shared\PageContentRightSide.gif" />
+    <Content Include="App_Themes\_Shared\PageHeader.gif" />
+    <Content Include="App_Themes\_Shared\Page_Announce.png" />
+    <Content Include="App_Themes\_Shared\Page_Categories.png" />
+    <Content Include="App_Themes\_Shared\Page_Comments.png" />
+    <Content Include="App_Themes\_Shared\Page_Contacts.png" />
+    <Content Include="App_Themes\_Shared\Page_Discussions.png" />
+    <Content Include="App_Themes\_Shared\Page_Events.png" />
+    <Content Include="App_Themes\_Shared\Page_Folders.png" />
+    <Content Include="App_Themes\_Shared\Page_Generic.png" />
+    <Content Include="App_Themes\_Shared\Page_Images.png" />
+    <Content Include="App_Themes\_Shared\Page_Meeting.png" />
+    <Content Include="App_Themes\_Shared\Page_Memos.png" />
+    <Content Include="App_Themes\_Shared\Page_Misc.png" />
+    <Content Include="App_Themes\_Shared\Page_Notes.png" />
+    <Content Include="App_Themes\_Shared\Page_Referenes.png" />
+    <Content Include="App_Themes\_Shared\Page_Settings.png" />
+    <Content Include="App_Themes\_Shared\Page_Solutions.png" />
+    <Content Include="App_Themes\_Shared\Page_Tasks.png" />
+    <Content Include="App_Themes\_Shared\Page_Users.png" />
+    <Content Include="App_Themes\_Shared\ParaHeaderBkg.gif" />
+    <Content Include="App_Themes\_Shared\Paste.png" />
+    <Content Include="App_Themes\_Shared\Placeholder.gif" />
+    <Content Include="App_Themes\_Shared\PopupArrow.gif" />
+    <Content Include="App_Themes\_Shared\Print.png" />
+    <Content Include="App_Themes\_Shared\QuickFind.gif" />
+    <Content Include="App_Themes\_Shared\Refresh.png" />
+    <Content Include="App_Themes\_Shared\Save.gif" />
+    <Content Include="App_Themes\_Shared\SaveLarge.gif" />
+    <Content Include="App_Themes\_Shared\Search.gif" />
+    <Content Include="App_Themes\_Shared\Search.png" />
+    <Content Include="App_Themes\_Shared\SearchPlusMinus.png" />
+    <Content Include="App_Themes\_Shared\SettingsGraphic.jpg" />
+    <Content Include="App_Themes\_Shared\SiteActionsActiveTab.gif" />
+    <Content Include="App_Themes\_Shared\SiteActionsInactiveTab.gif" />
+    <Content Include="App_Themes\_Shared\SortAZ.gif" />
+    <Content Include="App_Themes\_Shared\SortDown.gif" />
+    <Content Include="App_Themes\_Shared\SortUp.gif" />
+    <Content Include="App_Themes\_Shared\SortZA.gif" />
+    <Content Include="App_Themes\_Shared\StatusBar.png" />
+    <Content Include="App_Themes\_Shared\tab-active-left-verticalleft.gif" />
+    <Content Include="App_Themes\_Shared\tab-active-left-verticalright.gif" />
+    <Content Include="App_Themes\_Shared\tab-active-left.gif" />
+    <Content Include="App_Themes\_Shared\tab-active-right-verticalleft.gif" />
+    <Content Include="App_Themes\_Shared\tab-active-right-verticalright.gif" />
+    <Content Include="App_Themes\_Shared\tab-active-right.gif" />
+    <Content Include="App_Themes\_Shared\tab-active-verticalleft.gif" />
+    <Content Include="App_Themes\_Shared\tab-active-verticalright.gif" />
+    <Content Include="App_Themes\_Shared\tab-active.gif" />
+    <Content Include="App_Themes\_Shared\tab-bottom-active-left.gif" />
+    <Content Include="App_Themes\_Shared\tab-bottom-active-right.gif" />
+    <Content Include="App_Themes\_Shared\tab-bottom-active.gif" />
+    <Content Include="App_Themes\_Shared\tab-bottom-hover-left.gif" />
+    <Content Include="App_Themes\_Shared\tab-bottom-hover-right.gif" />
+    <Content Include="App_Themes\_Shared\tab-bottom-hover.gif" />
+    <Content Include="App_Themes\_Shared\tab-bottom-left.gif" />
+    <Content Include="App_Themes\_Shared\tab-bottom-right.gif" />
+    <Content Include="App_Themes\_Shared\tab-bottom.gif" />
+    <Content Include="App_Themes\_Shared\tab-hover-left-verticalleft.gif" />
+    <Content Include="App_Themes\_Shared\tab-hover-left-verticalright.gif" />
+    <Content Include="App_Themes\_Shared\tab-hover-left.gif" />
+    <Content Include="App_Themes\_Shared\tab-hover-right-verticalleft.gif" />
+    <Content Include="App_Themes\_Shared\tab-hover-right-verticalright.gif" />
+    <Content Include="App_Themes\_Shared\tab-hover-right.gif" />
+    <Content Include="App_Themes\_Shared\tab-hover-verticalleft.gif" />
+    <Content Include="App_Themes\_Shared\tab-hover-verticalright.gif" />
+    <Content Include="App_Themes\_Shared\tab-hover.gif" />
+    <Content Include="App_Themes\_Shared\tab-left-verticalleft.gif" />
+    <Content Include="App_Themes\_Shared\tab-left-verticalright.gif" />
+    <Content Include="App_Themes\_Shared\tab-left.gif" />
+    <Content Include="App_Themes\_Shared\tab-line.gif" />
+    <Content Include="App_Themes\_Shared\tab-right-verticalleft.gif" />
+    <Content Include="App_Themes\_Shared\tab-right-verticalright.gif" />
+    <Content Include="App_Themes\_Shared\tab-right.gif" />
+    <Content Include="App_Themes\_Shared\tab-verticalleft.gif" />
+    <Content Include="App_Themes\_Shared\tab-verticalright.gif" />
+    <Content Include="App_Themes\_Shared\tab.gif" />
+    <Content Include="App_Themes\_Shared\TabsActiveTab.gif" />
+    <Content Include="App_Themes\_Shared\TabsBar.gif" />
+    <Content Include="App_Themes\_Shared\TabsInactiveTab.gif" />
+    <Content Include="App_Themes\_Shared\TabsSelectedTab.gif" />
+    <Content Include="App_Themes\_Shared\TaskBoxBkg.gif" />
+    <Content Include="App_Themes\_Shared\TaskBullet.gif" />
+    <Content Include="App_Themes\_Shared\TopShape.jpg" />
+    <Content Include="App_Themes\_Shared\TreeControls.png" />
+    <Content Include="App_Themes\_Shared\Undo.gif" />
+    <Content Include="App_Themes\_Shared\ViewNameBg.gif" />
+    <Content Include="App_Themes\_Shared\Wait.gif" />
+    <Content Include="App_Themes\_Shared\WhiteDropArrow.gif" />
+    <Content Include="App_Themes\_Shared\Word.gif" />
+    <Content Include="App_Themes\_Shared\_Layout.css" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Code\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Web.Sitemap" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v12.0</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>0</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:9584/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!--
+        To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  
+      -->
+  <ItemGroup>
+    <Compile Include="Controls\CalendarEvent.cs" />
+    <Compile Include="Controls\EventDAO.cs" />
+    <Compile Include="Controls\ImproperCalendarEvent.cs" />
+    <Content Include="Controls\JsonResponse.ashx" />
+    <Content Include="css\cupertino\images\ui-bg_diagonals-thick_90_eeeeee_40x40.png" />
+    <Content Include="css\cupertino\images\ui-bg_flat_15_cd0a0a_40x100.png" />
+    <Content Include="css\cupertino\images\ui-bg_glass_100_e4f1fb_1x400.png" />
+    <Content Include="css\cupertino\images\ui-bg_glass_50_3baae3_1x400.png" />
+    <Content Include="css\cupertino\images\ui-bg_glass_80_d7ebf9_1x400.png" />
+    <Content Include="css\cupertino\images\ui-bg_highlight-hard_100_f2f5f7_1x100.png" />
+    <Content Include="css\cupertino\images\ui-bg_highlight-hard_70_000000_1x100.png" />
+    <Content Include="css\cupertino\images\ui-bg_highlight-soft_100_deedf7_1x100.png" />
+    <Content Include="css\cupertino\images\ui-bg_highlight-soft_25_ffef8f_1x100.png" />
+    <Content Include="css\cupertino\images\ui-icons_2694e8_256x240.png" />
+    <Content Include="css\cupertino\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="css\cupertino\images\ui-icons_3d80b3_256x240.png" />
+    <Content Include="css\cupertino\images\ui-icons_72a7cf_256x240.png" />
+    <Content Include="css\cupertino\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="css\cupertino\jquery-ui-1.7.3.custom.css" />
+    <Content Include="fullcalendar\fullcalendar.css" />
+    <Content Include="fullcalendar\fullcalendar.min.js" />
+    <WebReferenceUrl Include="http://localhost:1576/WebService1.asmx">
+      <UrlBehavior>Dynamic</UrlBehavior>
+      <RelPath>Web References\localhost\</RelPath>
+      <UpdateFromURL>http://localhost:1576/WebService1.asmx</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>Settings</CachedAppSettingsObjectName>
+      <CachedSettingsPropName>WebApp_localhost_WebService1</CachedSettingsPropName>
+    </WebReferenceUrl>
+    <Content Include="jquery\jquery.qtip-1.0.0-rc3.min.js" />
+    <Content Include="jquery\jquery-1.3.2.min.js" />
+    <Content Include="jquery\jquery-ui-1.7.3.custom.min.js" />
+    <Content Include="jquery\jquery-ui-timepicker-addon-0.6.2.min.js" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <WCFMetadata Include="Service References\" />
+    <Reference Include="System.EnterpriseServices" />
+    <Content Include="touch\app-core.css" />
+    <Content Include="touch\app-themes.css" />
+    <Content Include="touch\bootstrap.css" />
+    <Content Include="touch\bootstrap.min.css" />
+    <Content Include="touch\bootstrap-themes.css" />
+    <Content Include="touch\bootstrap-themes.min.css" />
+    <Content Include="touch\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="touch\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="touch\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="touch\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="touch\icons.html" />
+    <Content Include="touch\images\ajax-loader.gif" />
+    <Content Include="touch\jquery.mobile-1.4.5.css" />
+    <Content Include="touch\jquery.mobile-1.4.5.js" />
+    <Content Include="touch\jquery.mobile-1.4.5.min.css" />
+    <Content Include="touch\jquery.mobile-1.4.5.min.js" />
+    <Content Include="touch\logo-black.png" />
+    <Content Include="touch\logo-color.png" />
+    <Content Include="touch\logo-icon.png" />
+    <Content Include="touch\logo-white.png" />
+    <WebReferences Include="Web References\" />
+    <Compile Include="Web References\localhost\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+    <Content Include="Web References\localhost\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </Content>
+    <None Include="Web References\localhost\WebService1.disco" />
+    <None Include="Web References\localhost\WebService1.wsdl" />
+  </ItemGroup>
+</Project>
